@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>feed-stars · examples</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      background: #1C212E;
+      color: #cbd1de;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    }
+    section { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    h2 { font-size: 13px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; opacity: 0.6; margin: 0; }
+    .light {
+      --feed-stars-active: #f59e0b;
+      --feed-stars-active-pale: rgba(245, 158, 11, 0.36);
+      --feed-stars-inactive: #e5e7eb;
+      --feed-stars-face-active: #fff;
+      --feed-stars-face-inactive: #fafafa;
+      padding: 24px 32px;
+      background: #fff;
+      border-radius: 12px;
+    }
+    .pink {
+      --feed-stars-active: #ec4899;
+      --feed-stars-active-pale: rgba(236, 72, 153, 0.36);
+    }
+    output { font-variant-numeric: tabular-nums; opacity: 0.7; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <section>
+    <h2>default (dark)</h2>
+    <feed-stars id="a"></feed-stars>
+    <output for="a">value: 0</output>
+  </section>
+
+  <section>
+    <h2>preset to 4</h2>
+    <feed-stars value="4"></feed-stars>
+  </section>
+
+  <section>
+    <h2>themed (pink)</h2>
+    <feed-stars class="pink"></feed-stars>
+  </section>
+
+  <section>
+    <h2>themed (light)</h2>
+    <feed-stars class="light"></feed-stars>
+  </section>
+
+  <script type="module">
+    import './src/feed-stars.js';
+    const a = document.getElementById('a');
+    const out = document.querySelector('output[for="a"]');
+    a.addEventListener('change', (e) => { out.textContent = `value: ${e.detail.value}`; });
+  </script>
+</body>
+</html>
