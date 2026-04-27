@@ -7,7 +7,7 @@ JPEG output until the result is at or below a target byte budget. Wraps
 ## Usage
 
 ```js
-import { compressImage } from 'https://cdn.jsdelivr.net/gh/holmhq-admin/cdn@master/libs/utils/compress/v-0.0.1/compress.mjs'
+import { compressImage } from 'https://cdn.jsdelivr.net/gh/holmhq-admin/cdn@master/libs/utils/compress/v-0.0.1/compress.min.mjs'
 
 const blob = await compressImage(file, { maxBytes: 250_000, maxDim: 1536 })
 formData.append('file', blob, 'upload.jpg')
